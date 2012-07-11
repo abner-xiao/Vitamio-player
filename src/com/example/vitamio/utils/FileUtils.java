@@ -52,6 +52,11 @@ public class FileUtils {
         return null;
     }
 
+    /**
+     *
+     * @param fileName
+     * @return
+     */
     public static String getFileNameNoExt(String fileName) {
         if (fileName != null && (fileName.length() > 0)) {
             int i = fileName.lastIndexOf('.');
@@ -62,6 +67,11 @@ public class FileUtils {
         return null;
     }
 
+    /**
+     *
+     * @param file
+     * @return
+     */
     public static String getFileNameNoExt(File file) {
         if (file != null) {
             String fileName = file.getName();

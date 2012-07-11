@@ -6,6 +6,8 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import com.example.vitamio.R;
+import com.example.vitamio.utils.PinyinUtils;
+import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombination;
 
 /**
  * Created with IntelliJ IDEA.
@@ -42,6 +44,11 @@ public class VitamioPlayer extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.frament_pager);
         mPager = (ViewPager) findViewById(R.id.pager);
-        mPager.setAdapter(mAdapter);
+//        mPager.setAdapter(mAdapter);
+        try {
+            setTitle(PinyinUtils.cn2Spell("你"));
+        } catch (BadHanyuPinyinOutputFormatCombination badHanyuPinyinOutputFormatCombination) {
+            badHanyuPinyinOutputFormatCombination.printStackTrace();
+        }
     }
 }

@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import com.example.vitamio.R;
 
 /**
  * Created with IntelliJ IDEA.
@@ -24,8 +25,9 @@ public class FragmentBase extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-//        View v = inflater.inflate()
-//        return v;
-        return null;
+        View v = inflater.inflate(R.layout.fragment_base, container, false);
+        mListView = (ListView) v.findViewById(android.R.id.list);
+        mLoadingLayout = v.findViewById(R.id.loading);
+        return v;
     }
 }
