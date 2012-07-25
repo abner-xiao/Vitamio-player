@@ -171,8 +171,10 @@ public class FragmentFile extends FragmentBase implements AdapterView.OnItemClic
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         final PFile file = mAdapter.getItem(position);
-        Intent intent = new Intent(getActivity(), VideoPlayer_v1.class);
-        intent.putExtra("path", file.path);
+        File temp = new File(file.path);
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_VIEW);
+        intent.setDataAndType(Uri.fromFile(temp), "video/*");
         startActivity(intent);
     }
 
